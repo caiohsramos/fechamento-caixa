@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-default">
+  <a class="navbar-brand">Caixas</a>
+  <%= link_to 'Novo Caixa', new_caixa_path, class: "btn btn-default navbar-btn" %>
+</nav>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Data</th>
+      <th>Nome</th>
+      <th>Dinheiro</th>
+      <th>Troco final</th>
+      <th>Troco inicial</th>
+      <th>Cartao</th>
+      <th>Despesas</th>
+      <th>Total</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caixas.each do |caixa| %>
+      <tr>
+        <td><%= caixa.created_at.strftime("%d %b. %Y - %X") %></td>
+        <td><%= caixa.nome %></td>
+        <td><%= caixa.dinheiro %></td>
+        <td><%= caixa.troco_final %></td>
+        <td><%= caixa.troco_inicial %></td>
+        <td><%= caixa.cartao %></td>
+        <td><%= caixa.despesas_sum %></td>
+        <td><%= caixa.sum %></td>
+        <td align="center"><%= link_to 'Detalhes/Despesas', caixa, class: "btn btn-info" %></td>
+        <td align="center"><%= link_to 'Editar', edit_caixa_path(caixa), class: "btn btn-warning" %></td>
+        <td align="center"><%= link_to 'Deletar', caixa, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

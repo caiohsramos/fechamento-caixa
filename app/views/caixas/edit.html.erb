@@ -1,0 +1,8 @@
+<nav class="navbar navbar-default">
+  <a class="navbar-brand">Editar Caixa do dia <%= @caixa.created_at.strftime("%d %b. %Y - %X") %></a>
+    <%= link_to 'Voltar', caixas_path, class: "btn btn-default navbar-btn" %>
+</nav>
+
+<div class="container">
+<%= render 'form', caixa: @caixa %>
+</div>

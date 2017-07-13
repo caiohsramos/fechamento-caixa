@@ -1,0 +1,44 @@
+<%= form_with(model: caixa, local: true) do |form| %>
+  <% if caixa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(caixa.errors.count, "erros") %> proibiram esse caixa de ser salvo:</h2>
+
+      <ul>
+      <% caixa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nome %>
+    <%= form.text_field :nome, id: :caixa_nome, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :dinheiro %>
+    <%= form.text_field :dinheiro, id: :caixa_dinheiro, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :troco_final %>
+    <%= form.text_field :troco_final, id: :caixa_troco_final, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :troco_inicial %>
+    <%= form.text_field :troco_inicial, id: :caixa_troco_inicial, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cartao %>
+    <%= form.text_field :cartao, id: :caixa_cartao, class: "form-control" %>
+  </div>
+
+
+
+  <div class="actions">
+    <%= form.submit "Salvar Caixa", class: "btn btn-success" %>
+  </div>
+<% end %>

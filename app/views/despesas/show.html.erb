@@ -1,0 +1,12 @@
+<p>
+  <strong>Nome:</strong>
+  <%= @despesa.nome %>
+</p>
+
+<p>
+  <strong>Valor:</strong>
+  <%= @despesa.valor %>
+</p>
+
+<%= link_to 'Edit', edit_caixa_despesa_path(@despesa.caixa, @despesa) %> |
+<%= link_to 'Back', caixa_despesas_path %>

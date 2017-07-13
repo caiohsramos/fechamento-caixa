@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor</th>
+      <th>Última modificção</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% Despesa.where(caixa_id: params[:id]).each do |despesa| %>
+      <tr>
+        <td><%= despesa.nome %></td>
+        <td><%= despesa.valor %></td>
+        <td><%= despesa.updated_at.strftime("%d %b. %Y - %X") %></td>
+        <td><%= link_to 'Editar', edit_caixa_despesa_path(despesa.caixa, despesa), class:  "btn btn-warning"%></td>
+        <td><%= link_to 'Deletar', caixa_despesa_path(despesa.caixa, despesa), method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

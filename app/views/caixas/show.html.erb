@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default">
+  <a class="navbar-brand">Caixa do dia <%= @caixa.created_at.strftime("%d %b. %Y - %X") %></a>
+  <%= link_to 'Adicionar despesa', new_caixa_despesa_path(caixa_id: params[:id]), class: "btn btn-primary navbar-btn" %>
+  <%= link_to 'Editar', edit_caixa_path(@caixa), class: "btn btn-warning navbar-btn" %>
+  <%= link_to 'Volar', caixas_path, class: "btn btn-default navbar-btn" %>
+</nav>
+
+<font size="3">
+<p>
+  <strong>Nome:</strong>
+  <%= @caixa.nome %>
+</p>
+
+<p>
+  <strong>Dinheiro:</strong>
+  <%= @caixa.dinheiro %>
+</p>
+
+<p>
+  <strong>Troco final:</strong>
+  <%= @caixa.troco_final %>
+</p>
+
+<p>
+  <strong>Troco inicial:</strong>
+  <%= @caixa.troco_inicial %>
+</p>
+
+<p>
+  <strong>Cartao:</strong>
+  <%= @caixa.cartao %>
+</p>
+
+<p>
+  <strong>Despesas:</strong>
+  <%= @caixa.despesas_sum %>
+  <%= render 'despesas/list'%>
+</p>
+
+<p>
+  <font size="4">
+  <strong>Total:</strong>
+  <%= @caixa.sum %>
+</font>
+</p>
+<br>
+<p>
+  <strong>Última modificação</strong>
+  <%= @caixa.updated_at.strftime("%d %b. %Y - %X") %>
+</p>
