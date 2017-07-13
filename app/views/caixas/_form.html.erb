@@ -1,7 +1,11 @@
 <%= form_with(model: caixa, local: true) do |form| %>
   <% if caixa.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(caixa.errors.count, "erros") %> proibiram esse caixa de ser salvo:</h2>
+      <h2><%= pluralize(caixa.errors.count, "erros") %>
+        <%= "proibiu" if caixa.errors.count == 1 %>
+        <%= "proibiram" if caixa.errors.count != 1 %>
+        esse caixa de ser salvo:
+      </h2>
 
       <ul>
       <% caixa.errors.full_messages.each do |message| %>

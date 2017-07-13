@@ -1,7 +1,11 @@
 <%= form_for([caixa,despesa]) do |form| %>
   <% if despesa.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(despesa.errors.count, "error") %> prohibited this despesa from being saved:</h2>
+      <h2><%= pluralize(despesa.errors.count, "erros") %>
+        <%= "proibiu" if despesa.errors.count == 1 %>
+        <%= "proibiram" if despesa.errors.count != 1 %>
+         essa despesa de ser salva:
+      </h2>
 
       <ul>
       <% despesa.errors.full_messages.each do |message| %>
