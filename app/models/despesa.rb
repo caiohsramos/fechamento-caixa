@@ -1,5 +1,6 @@
 class Despesa < ApplicationRecord
-  validates :nome, :valor, presence: true
+  validates :nome, presence: true
+  validates :valor, numericality: true
   belongs_to :caixa
 
 end
