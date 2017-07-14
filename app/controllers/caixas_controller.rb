@@ -1,5 +1,7 @@
 class CaixasController < ApplicationController
   before_action :set_caixa, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: "user", password: "1234", except: :destroy
+  http_basic_authenticate_with name: "admin", password: "1234", only: :destroy
 
   # GET /caixas
   # GET /caixas.json

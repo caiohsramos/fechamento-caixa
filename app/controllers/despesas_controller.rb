@@ -1,5 +1,7 @@
 class DespesasController < ApplicationController
   before_action :set_despesa, only: [:show, :edit, :update, :destroy]
+  http_basic_authenticate_with name: "user", password: "1234", except: :destroy
+  http_basic_authenticate_with name: "admin", password: "1234", only: :destroy
 
   # GET /despesas
   # GET /despesas.json
