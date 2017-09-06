@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-  <a class="navbar-brand">Nova Despesa do dia <%= I18n.l caixa.data, format: :default %></a>
+  <a class="navbar-brand">Nova Despesa do dia <%= I18n.l @caixa.data, format: :default %></a>
   <%= link_to 'Voltar', caixa_path(params[:caixa_id]), class: "btn btn-default navbar-btn" %>
 
 </nav>
