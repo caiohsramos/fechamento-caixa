@@ -1,7 +1,8 @@
 
 <nav class="navbar navbar-default">
-  <a class="navbar-brand">Caixas</a>
+  <a class="navbar-brand">Caixas CDP</a>
   <%= link_to 'Novo Caixa', new_caixa_path, class: "btn btn-default navbar-btn" %>
+  <%= link_to 'Gerar Relatorio', caixas_path(format: :csv), class: "btn btn-success navbar-btn" %>
 </nav>
 
 <table class="table">

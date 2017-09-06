@@ -1,3 +1,5 @@
+require 'csv'
+
 class Caixa < ApplicationRecord
 
   validates :nome, :data, presence: true
