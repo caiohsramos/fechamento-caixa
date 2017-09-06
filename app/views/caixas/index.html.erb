@@ -22,7 +22,7 @@
   <tbody>
     <% @caixas.each do |caixa| %>
       <tr>
-        <td><%= caixa.created_at.strftime("%d %b. %Y - %X") %></td>
+        <td><%= caixa.data.strftime("%x") %></td>
         <td><%= caixa.nome %></td>
         <td><%= caixa.dinheiro %></td>
         <td><%= caixa.troco_final %></td>

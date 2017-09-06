@@ -6,7 +6,7 @@ class CaixasController < ApplicationController
   # GET /caixas
   # GET /caixas.json
   def index
-    @caixas = Caixa.all
+    @caixas = Caixa.order(:data)
   end
 
   # GET /caixas/1
@@ -71,6 +71,6 @@ class CaixasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def caixa_params
-      params.require(:caixa).permit(:nome, :dinheiro, :troco_final, :troco_inicial, :cartao, :despesas)
+      params.require(:caixa).permit(:nome, :dinheiro, :troco_final, :troco_inicial, :cartao, :despesas, :data)
     end
 end

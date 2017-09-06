@@ -1,5 +1,5 @@
 class Caixa < ApplicationRecord
-  validates :nome, presence: true
+  validates :nome, :data, presence: true
   validates :cartao, :dinheiro, :troco_final, :troco_inicial, numericality: true
   has_many :despesas, dependent: :destroy
   accepts_nested_attributes_for :despesas

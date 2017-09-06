@@ -16,6 +16,11 @@
   <% end %>
 
   <div class="form-group">
+    <%= form.label :data %>
+    <%= form.date_field :data, id: :caixa_data, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= form.label :nome %>
     <%= form.text_field :nome, id: :caixa_nome, class: "form-control" %>
   </div>

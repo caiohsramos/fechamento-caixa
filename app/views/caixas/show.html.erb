@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default">
-  <a class="navbar-brand">Caixa do dia <%= @caixa.created_at.strftime("%d %b. %Y - %X") %></a>
+  <a class="navbar-brand">Caixa do dia <%= @caixa.data.strftime("%x") %></a>
   <%= link_to 'Adicionar despesa', new_caixa_despesa_path(caixa_id: params[:id]), class: "btn btn-primary navbar-btn" %>
   <%= link_to 'Editar', edit_caixa_path(@caixa), class: "btn btn-warning navbar-btn" %>
   <%= link_to 'Voltar', caixas_path, class: "btn btn-default navbar-btn" %>
