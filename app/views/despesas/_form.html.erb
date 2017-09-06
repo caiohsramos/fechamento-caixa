@@ -22,7 +22,7 @@
 
   <div class="form-group">
     <%= form.label :valor %>
-    <%= form.text_field :valor, id: :despesa_valor, class: "form-control" %>
+    <%= form.number_field :valor, id: :despesa_valor, step: :any, class: "form-control" %>
   </div>
 
   <div class="actions">

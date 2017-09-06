@@ -13,34 +13,34 @@
 
 <p>
   <strong>Dinheiro:</strong>
-  <%= @caixa.dinheiro %>
+  <%= format_number @caixa.dinheiro %>
 </p>
 
 <p>
   <strong>Troco final:</strong>
-  <%= @caixa.troco_final %>
+  <%= format_number @caixa.troco_final %>
 </p>
 
 <p>
   <strong>Troco inicial:</strong>
-  <%= @caixa.troco_inicial %>
+  <%= format_number @caixa.troco_inicial %>
 </p>
 
 <p>
   <strong>Cartao:</strong>
-  <%= @caixa.cartao %>
+  <%= format_number @caixa.cartao %>
 </p>
 
 <p>
   <strong>Despesas:</strong>
-  <%= @caixa.despesas_sum %>
+  <%= format_number @caixa.despesas_sum %>
   <%= render 'despesas/list'%>
 </p>
 
 <p>
   <font size="4">
   <strong>Total:</strong>
-  <%= @caixa.sum %>
+  <%= format_number @caixa.sum %>
 </font>
 </p>
 <br>

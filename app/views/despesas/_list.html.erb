@@ -12,7 +12,7 @@
     <% Despesa.where(caixa_id: params[:id]).each do |despesa| %>
       <tr>
         <td><%= despesa.nome %></td>
-        <td><%= despesa.valor %></td>
+        <td><%= format_number despesa.valor %></td>
         <td><%= despesa.updated_at.strftime("%d %b. %Y - %X") %></td>
         <td><%= link_to 'Editar', edit_caixa_despesa_path(despesa.caixa, despesa), class:  "btn btn-warning"%></td>
         <td><%= link_to 'Deletar', caixa_despesa_path(despesa.caixa, despesa), method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>

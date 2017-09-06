@@ -27,22 +27,22 @@
 
   <div class="form-group">
     <%= form.label :dinheiro %>
-    <%= form.text_field :dinheiro, id: :caixa_dinheiro, class: "form-control" %>
+    <%= form.number_field :dinheiro, id: :caixa_dinheiro, step: :any, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :troco_final %>
-    <%= form.text_field :troco_final, id: :caixa_troco_final, class: "form-control" %>
+    <%= form.number_field :troco_final, id: :caixa_troco_final, step: :any, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :troco_inicial %>
-    <%= form.text_field :troco_inicial, id: :caixa_troco_inicial, class: "form-control" %>
+    <%= form.number_field :troco_inicial, id: :caixa_troco_inicial, step: :any, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= form.label :cartao %>
-    <%= form.text_field :cartao, id: :caixa_cartao, class: "form-control" %>
+    <%= form.number_field :cartao, id: :caixa_cartao, step: :any, class: "form-control" %>
   </div>
 
 
