@@ -1,17 +1,19 @@
 require 'csv'
 
 class Caixa < ApplicationRecord
-
   validates :nome, :data, presence: true
   validates :cartao, :dinheiro, :troco_final, :troco_inicial, numericality: true
   has_many :despesas, dependent: :destroy
   accepts_nested_attributes_for :despesas
 
   def self.to_csv
-    CSV.generate do |csv|
-      csv << %w{ data dinheiro cartao }
+    CSV.generate(col_sep: ';') do |csv|
+      csv << %w{ data dinheiro cartao total }
       all.each do |caixa|
-        csv << [I18n.l( caixa.data, format: :default), caixa.dinheiro, caixa.cartao ]
+        csv << [I18n.l( caixa.data, format: :default),
+          ApplicationController.helpers.number_with_precision(caixa.sum-caixa.cartao, precision: 2, separator: ',', delimiter: ''),
+          ApplicationController.helpers.number_with_precision(caixa.cartao, precision: 2, separator: ',', delimiter: ''),
+          ApplicationController.helpers.number_with_precision(caixa.sum, precision: 2, separator: ',', delimiter: '') ]
       end
     end
   end
