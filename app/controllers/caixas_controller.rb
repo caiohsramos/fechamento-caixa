@@ -6,7 +6,10 @@ class CaixasController < ApplicationController
   # GET /caixas
   # GET /caixas.json
   def index
-    @caixas = Caixa.order(:data)
+    respond_to do |format|
+      format.html {@caixas = Caixa.order(data: :desc)}
+      format.csv { send_data Caixa.order(data: :asc).to_csv, filename: "caixas-#{Date.today}.csv" }
+    end
   end
 
   # GET /caixas/1

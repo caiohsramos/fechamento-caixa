@@ -1,8 +1,18 @@
 class Caixa < ApplicationRecord
+
   validates :nome, :data, presence: true
   validates :cartao, :dinheiro, :troco_final, :troco_inicial, numericality: true
   has_many :despesas, dependent: :destroy
   accepts_nested_attributes_for :despesas
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << %w{ data dinheiro cartao }
+      all.each do |caixa|
+        csv << [I18n.l( caixa.data, format: :default), caixa.dinheiro, caixa.cartao ]
+      end
+    end
+  end
 
   def sum
     s = self.despesas_sum
