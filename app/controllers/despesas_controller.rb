@@ -6,7 +6,10 @@ class DespesasController < ApplicationController
   # GET /despesas
   # GET /despesas.json
   def index
-    @despesas = Despesa.where(caixa_id: params[:caixa_id])
+    respond_to do |format|
+      format.html {@despesas = Despesa.where(caixa_id: params[:caixa_id])}
+      format.csv { send_data Despesa.joins(:caixa).order('caixas.data ASC').to_csv, filename: "despesas-#{Date.today}.csv" }
+    end
   end
 
   # GET /despesas/1

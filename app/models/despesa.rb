@@ -3,4 +3,15 @@ class Despesa < ApplicationRecord
   validates :valor, numericality: true
   belongs_to :caixa
 
+  def self.to_csv
+    CSV.generate(col_sep: ';') do |csv|
+      csv << %w{ data nome valor }
+      all.each do |desp|
+        csv << [I18n.l( desp.caixa.data, format: :default),
+          desp.nome,
+          ApplicationController.helpers.number_with_precision(desp.valor, precision: 2, separator: ',', delimiter: '') ]
+      end
+    end
+  end
+
 end

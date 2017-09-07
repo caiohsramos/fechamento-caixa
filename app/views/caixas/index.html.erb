@@ -21,7 +21,7 @@
         </button>
         <ul class="dropdown-menu">
           <li><%= link_to 'Relatório de caixas', caixas_path(format: :csv)%></li>
-          <li class="disabled"><a href="#">Relatório de Despesas</a></li>
+          <li><%= link_to 'Relatório de despesas', 'despesas.csv', method: :get%></li>
         </ul>
       </li>
     </ul>
