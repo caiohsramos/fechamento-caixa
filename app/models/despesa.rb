@@ -14,4 +14,12 @@ class Despesa < ApplicationRecord
     end
   end
 
+  def self.month_sum
+    s = 0
+    Despesa.all.each do |d|
+      s += d.valor
+    end
+    s
+  end
+
 end

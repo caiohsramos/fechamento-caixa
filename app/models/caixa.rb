@@ -30,4 +30,17 @@ class Caixa < ApplicationRecord
     end
     s
   end
+
+  def self.month_sum
+    s = 0
+    Caixa.all.each do |c|
+      s += c.sum
+    end
+    s
+  end
+
+  def self.month_avg
+    Caixa.month_sum/Caixa.count
+  end
+
 end
