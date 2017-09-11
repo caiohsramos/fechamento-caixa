@@ -40,7 +40,11 @@ class Caixa < ApplicationRecord
   end
 
   def self.month_avg
-    Caixa.month_sum/Caixa.count
+    if Caixa.count != 0
+      Caixa.month_sum/Caixa.count
+    else
+      0
+    end
   end
 
 end
